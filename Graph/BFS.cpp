@@ -1,3 +1,4 @@
+// This code describes the BFS(Breadth First Implementation) in a graph.
 #include <bits/stdc++.h>
 using namespace std;
 class graph
@@ -11,11 +12,13 @@ public:
 	void printgraph();
 	void bfs(int s);
 };
+//Defining the constructor of the class graph
 graph::graph(int v)
 {
 	this->v = v;
 	this->adj = new list<int>[v];
 }
+// Adding edges to the graph
 void graph::addedge(int src, int dest)
 {
 	src--;
@@ -23,6 +26,7 @@ void graph::addedge(int src, int dest)
 	adj[src].push_back(dest);
 	//adj[dest].push_back(src);
 }
+// Displaying the graph nodes i.e. the Adjacency List of the vertex.
 void graph::printgraph()
 {
 	for (int i = 0; i < this->v; i++)
@@ -36,6 +40,7 @@ void graph::printgraph()
 		cout << endl;
 	}
 }
+//Implementing BFS traversal.
 void graph::bfs(int s)
 {
 	bool *visited = new bool[this->v + 1];
